@@ -10,18 +10,18 @@
 	<element name="patient" type="tns:Patient" />
 
 	<complexType name="Patient">
-		<sequence>
-			<element name="id" type="tns:ID" />
+		<sequence> <!-- el orden importa. Van en el orden en el que se declaran -->
+			<!--<element name="id" type="tns:ID" />-->
 			<element name="name" type="string" />
 			<element name="age" type="int" />
 			<element name="dob" type="date" />
 			<element name="email" type="string" maxOccurs="unbounded" />
 			<element name="gender" type="tns:Gender" />
 			<element name="phone" type="string" />
-			<!-- <element name="payment" type="tns:PaymentType" /> -->
+			<element name="payment" type="tns:PaymentType" />
 		</sequence>
 
-		<!-- <attribute name="id" type="tns:ID" use="required" /> -->
+		<attribute name="id" type="tns:ID" use="required" />
 
 	</complexType>
 	
@@ -44,20 +44,18 @@
 		</restriction>
 	</simpleType>	
 	
-<!-- 	<complexType name="PaymentType">
-		<choice>
+ 	<complexType name="PaymentType">
+		<choice> <!-- O uno u otro -->
 			<element name="cash" type="int" />
 			<element name="insurance" type="tns:Insurance" />
 		</choice>
 	</complexType>
 
 	<complexType name="Insurance">
-		<all>
+		<all> 
 			<element name="provider" type="string" />
 			<element name="limit" type="int" />
 		</all>
 	</complexType>
-
- -->
 
 </schema>
